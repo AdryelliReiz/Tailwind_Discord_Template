@@ -5,14 +5,16 @@ import { SideBarIcon } from "./SidebarIcon";
 
 export function SideBar() {
     return (
-        <div className="fixed top-0 left-0 h-screen w-[68px] m-0 flex flex-col bg-gray-900 text-white shadow-lg bg-primary text-secondary">
+        <div className="h-screen w-[70px] m-0 flex flex-col bg-gray-900 text-white shadow-lg bg-primary text-secondary">
             <SideBarIcon
                 text="Mensagens diretas"
                 icon={
                     <BsDiscord size={28} />
                 }
             />
-            <span className="w-8 h-[2px] mx-auto bg-gray-800" />
+            
+            <span className="w-8 h-[2px] mx-auto bg-gray-700" />
+
             <SideBarIcon
                 text="Flash Server"
                 typeDefault
