@@ -3,16 +3,11 @@ import { RiVipDiamondFill, RiCloseFill } from "react-icons/ri";
 import { MdMic, MdHeadset } from "react-icons/md";
 import React from "react";
 import { Button } from "./Button";
+import { NavigationChannel } from "./NavigationChannel";
 
 type NavigationItemsProps = {
     text: string
     icon: React.ReactNode
-}
-
-type NavigationChannelProps = {
-    name: string
-    icon: string
-    status: "online" | "offline" | "dnd" | "iddle"
 }
 
 export function ChannelsNavigation() {
@@ -57,30 +52,35 @@ export function ChannelsNavigation() {
                     name="Ana"
                     icon="https://i.pinimg.com/236x/18/4a/58/184a5862d4385c23b54fd824fc855ae6.jpg"
                     status="dnd"
+                    close
                 />
                 <NavigationChannel
                     key={2}
                     name="Niculinhas"
                     icon="https://i.pinimg.com/236x/ac/de/05/acde05cafccd81474903f9a2066ec19b.jpg"
                     status="offline"
+                    close
                 />
                 <NavigationChannel
                     key={3}
                     name="uGabreeBr"
                     icon="https://i.pinimg.com/236x/fa/72/bc/fa72bc456386fbd7ddf664d6a3237f25.jpg"
                     status="online"
+                    close
                 />
                 <NavigationChannel
                     key={4}
                     name="Edu"
                     icon="https://i.pinimg.com/236x/7b/5d/97/7b5d974ad1133dc9efb3080587420ffc.jpg"
                     status="offline"
+                    close
                 />
                 <NavigationChannel
                     key={5}
                     name="Math"
                     icon="https://i.pinimg.com/236x/c5/28/da/c528da37d1077f7e38a3a2da6f9e1c5a.jpg"
                     status="iddle"
+                    close
                 />
             </div>
 
@@ -138,31 +138,3 @@ function NavigationItems({text, icon}: NavigationItemsProps) {
     );
 }
 
-function NavigationChannel({name, icon, status}: NavigationChannelProps) {
-    return (
-        <div className="flex items-center justify-between gap-3 px-2 py-1 text-gray-400 text-[15px] rounded-sm cursor-pointer transition-all duration-100 hover:bg-gray-600 group">
-            <div className="flex items-center gap-3 hover:text-gray-50" >
-                <div className="relative">
-                    <img
-                        className="w-8 h-8 rounded-full"
-                        src={icon} 
-                        alt={`${name}-icon`} 
-                    />
-                    <span className={
-                        `absolute w-4 h-4 right-[-2px] bottom-[-2px] rounded-full border-4 border-gray-700
-                        ${status == "online" ? "bg-green-600" : status == "offline" ? "bg-gray-500" : status == "dnd" ? "bg-red-600" : status == "iddle" && "bg-yellow-500"}
-                        `} 
-                    />
-                </div>
-
-                {name}
-            </div>
-
-            <div className="transition-all duration-100 scale-0 hover:text-gray-50 group-hover:scale-100">
-                <RiCloseFill
-                    size={18} 
-                />
-            </div>
-        </div>
-    );
-}

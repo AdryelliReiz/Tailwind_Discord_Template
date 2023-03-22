@@ -5,6 +5,7 @@ import { CgInbox } from "react-icons/cg"
 import { AiFillPlusCircle, AiOutlineGif } from "react-icons/ai";
 import { FaGift } from "react-icons/fa";
 import { Message, MessageProps } from "./Message";
+import { NavigationChannel } from "./NavigationChannel";
 
 type ButtonProps = {
     icon: React.ReactNode
@@ -115,8 +116,8 @@ const messages: MessageProps[] = [
 
 export function Chat() {
     return (
-        <div className="h-screen w-full bg-gray-600 flex flex-col justify-between">
-            <header className="h-16 flex items-center justify-between border-b-[1px] px-4 text-zinc-400 border-gray-900">
+        <div className="h-screen w-full relative">
+            <header className="absolute z-10 w-full bg-gray-600 h-12 flex items-center justify-between border-b-[1px] px-4 text-zinc-400 border-gray-900">
                 <div className="flex items-center gap-2">
                     <MdPeopleAlt size={22} />
                     <p className="text-gray-400 font-semibold" >
@@ -150,7 +151,7 @@ export function Chat() {
                         type="text" 
                         placeholder="Buscar" 
                     />
-                    
+                        
                     <Button 
                         icon={<CgInbox size={22} />} 
                         description="Caixa de Entrada"
@@ -162,45 +163,88 @@ export function Chat() {
                 </div>
             </header>
 
-            <div className="h-full w-full flex flex-col-reverse overflow-y-scroll">
-                {messages.map((message, i) => (
-                    <Message 
-                        key={i}
-                        id={message.id}
-                        type={message.type}
-                        author={message.author}
-                        text={message.text}
-                        date={message.date}
-                    />
-                ))}
-            </div>
+            <div className="h-full flex pt-12">
+                <div className="w-full flex flex-col justify-end bg-gray-600">
+                    <div className="w-full flex flex-col-reverse overflow-y-scroll">
+                        {messages.map((message, i) => (
+                            <Message 
+                                key={i}
+                                id={message.id}
+                                type={message.type}
+                                author={message.author}
+                                text={message.text}
+                                date={message.date}
+                            />
+                        ))}
+                    </div>
 
-            <div className="w-full px-3 pb-4">
-                <div className="h-12 px-4 bg-gray-500 text-gray-400 rounded-md flex items-center gap-3">
-                    <button className="hover:text-gray-50" >
-                        <AiFillPlusCircle size={24} />
-                    </button>
+                    <div className="w-full px-3 pb-4">
+                        <div className="h-12 px-4 bg-gray-500 text-gray-400 rounded-md flex items-center gap-3">
+                            <button className="hover:text-gray-50" >
+                                <AiFillPlusCircle size={24} />
+                            </button>
 
-                    <input
-                        className="w-full h-12 outline-none bg-transparent p-2 rounded-sm text-[15px] text-slate-300 placeholder-zinc-400"
-                        type="text" 
-                        placeholder="Conversar em Bate Papo" 
-                    />
+                            <input
+                                className="w-full h-12 outline-none bg-transparent p-2 rounded-sm text-[15px] text-slate-300 placeholder-zinc-400"
+                                type="text" 
+                                placeholder="Conversar em Bate Papo" 
+                            />
 
-                    <button className="hover:text-gray-50" >
-                        <FaGift size={24} />
-                    </button>
-                    <button className="hover:text-gray-50" >
-                        <AiOutlineGif size={24} />
-                    </button>
-                    <button className="hover:text-gray-50" >
-                        <BsStickyFill size={24} />
-                    </button>
-                    <button className="hover:text-gray-50" >
-                        <MdEmojiEmotions size={24} />
-                    </button>
+                            <button className="hover:text-gray-50" >
+                                <FaGift size={24} />
+                            </button>
+                            <button className="hover:text-gray-50" >
+                                <AiOutlineGif size={24} />
+                            </button>
+                            <button className="hover:text-gray-50" >
+                                <BsStickyFill size={24} />
+                            </button>
+                            <button className="hover:text-gray-50" >
+                                <MdEmojiEmotions size={24} />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="w-[300px] ml-1 py-5 px-2 bg-gray-700" >
+                    <h1 className=" text-[12px] text-gray-400 hover:text-gray-50">
+                        MEMRBOS - 4
+                    </h1>
+                    <div className="flex flex-col gap-1 mt-1">
+                        <NavigationChannel
+                            key={1}
+                            name="Ana"
+                            icon="https://i.pinimg.com/236x/18/4a/58/184a5862d4385c23b54fd824fc855ae6.jpg"
+                            status="dnd"
+                        />
+                        <NavigationChannel
+                            key={2}
+                            name="Edu"
+                            icon="https://i.pinimg.com/236x/7b/5d/97/7b5d974ad1133dc9efb3080587420ffc.jpg"
+                            status="offline"
+                        />
+                        <NavigationChannel
+                            key={3}
+                            name="uGabreeBr"
+                            icon="https://i.pinimg.com/236x/fa/72/bc/fa72bc456386fbd7ddf664d6a3237f25.jpg"
+                            status="online"
+                        />
+                        <NavigationChannel
+                            key={4}
+                            name="Naomi Adryan"
+                            icon="https://i.pinimg.com/236x/d2/22/30/d2223095e7d02abd8da5977919d476b9.jpg"
+                            status="dnd"
+                        />
+                        <NavigationChannel
+                            key={5}
+                            name="Niculinhas"
+                            icon="https://i.pinimg.com/236x/ac/de/05/acde05cafccd81474903f9a2066ec19b.jpg"
+                            status="offline"
+                        />
+                    </div>
                 </div>
             </div>
+            
         </div>
     );
 }

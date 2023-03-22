@@ -12,7 +12,7 @@
 
 @layer components {
     body {
-        @apply bg-gray-600 max-h-screen w-full
+        @apply fixed bg-gray-600 max-h-screen w-full
     }
 
     .sidebar-icon {
