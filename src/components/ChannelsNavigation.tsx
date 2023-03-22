@@ -15,7 +15,7 @@ export function ChannelsNavigation() {
         <div className="h-screen w-[240px] bg-gray-700 relative" >
             <div className="h-12 border-b-[1px] p-2 border-gray-900">
                 <input
-                    className="w-[224px] h-7 bg-gray-900  p-1 rounded-sm text-[13px] text-slate-300 placeholder-gray-400"
+                    className="outline-none w-[224px] h-7 bg-gray-900  p-1 rounded-sm text-[13px] text-slate-300 placeholder-gray-400"
                     type="text" 
                     placeholder="Encontre ou comece uma conver..." 
                 />
