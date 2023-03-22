@@ -1,5 +1,6 @@
 import { SideBar } from "./components/SideBar";
 import { ChannelsNavigation } from "./components/ChannelsNavigation";
+import { Chat } from "./components/Chat";
 
 function App() {
   return (
@@ -7,6 +8,8 @@ function App() {
       <SideBar />
 
       <ChannelsNavigation />
+
+      <Chat />
     </div>
   )
 }

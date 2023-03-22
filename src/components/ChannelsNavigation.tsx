@@ -2,6 +2,7 @@ import { BsFillPersonFill, BsPlus, BsGearFill } from "react-icons/bs";
 import { RiVipDiamondFill, RiCloseFill } from "react-icons/ri";
 import { MdMic, MdHeadset } from "react-icons/md";
 import React from "react";
+import { Button } from "./Button";
 
 type NavigationItemsProps = {
     text: string
@@ -14,15 +15,10 @@ type NavigationChannelProps = {
     status: "online" | "offline" | "dnd" | "iddle"
 }
 
-type AutoButtonPros = {
-    icon: React.ReactNode
-    description: string
-}
-
 export function ChannelsNavigation() {
     return (
         <div className="h-screen w-[240px] bg-gray-700 relative" >
-            <div className="border-b-[1px] p-2 border-gray-900">
+            <div className="h-12 border-b-[1px] p-2 border-gray-900">
                 <input
                     className="w-[224px] h-7 bg-gray-900  p-1 rounded-sm text-[13px] text-slate-300 placeholder-gray-400"
                     type="text" 
@@ -115,15 +111,15 @@ export function ChannelsNavigation() {
                 </div>
 
                 <div className="flex items-center">
-                    <AutoButton 
+                    <Button 
                         icon={<MdMic size={20} />} 
                         description="Silenciar"
                     />
-                    <AutoButton 
+                    <Button 
                         icon={<MdHeadset size={20} />} 
                         description="Desativar o áudio"
                     />
-                    <AutoButton 
+                    <Button 
                         icon={<BsGearFill size={20} />} 
                         description="Configurações de Usuário"
                     />
@@ -168,20 +164,5 @@ function NavigationChannel({name, icon, status}: NavigationChannelProps) {
                 />
             </div>
         </div>
-    );
-}
-
-function AutoButton({icon, description}: AutoButtonPros) {
-    return (
-        <button className="w-[32px] h-[32px] flex items-center justify-center rounded-sm text-gray-400 hover:bg-gray-700 hover:text-gray-50 group" >
-            {icon}
-
-            <span className="absolute w-auto p-2 m-2 min-w-max top-[-42px] z-10
-                rounded-md shadow-md shadow-gray-900
-                text-gray-50 bg-zinc-900 text-xs
-                transition-all duration-100 scale-0 origin-bottom group-hover:scale-100" >
-                {description}
-            </span>
-        </button>
     );
 }

@@ -5,7 +5,7 @@ import { SideBarIcon } from "./SidebarIcon";
 
 export function SideBar() {
     return (
-        <div className="h-screen w-[70px] m-0 flex flex-col bg-gray-900 text-white shadow-lg bg-primary text-secondary">
+        <div className="h-screen w-[96px] m-0 flex flex-col bg-gray-900 text-white shadow-lg bg-primary text-secondary">
             <SideBarIcon
                 text="Mensagens diretas"
                 icon={

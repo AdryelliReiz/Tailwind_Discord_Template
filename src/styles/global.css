@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  @apply absolute bg-gray-700 w-2 rounded-md
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-900 rounded-md
+}
+
 @layer components {
     body {
-        @apply bg-gray-600
+        @apply bg-gray-600 max-h-screen w-full
     }
 
     .sidebar-icon {
