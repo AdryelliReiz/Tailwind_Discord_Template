@@ -15,6 +15,10 @@
         @apply fixed bg-gray-600 max-h-screen w-full
     }
 
+    .button-hover:hover span {
+        @apply scale-100
+    }
+
     .sidebar-icon {
         @apply relative flex items-center justify-center
             h-12 w-12 mt-2 mb-2 mx-auto
